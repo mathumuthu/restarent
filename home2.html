@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Responsive Header</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+height:2000px;
+}
+
+/* HEADER */
+
+header{
+position:fixed;
+top:0;
+width:100%;
+background:#111;
+padding:12px 40px;
+z-index:999;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+/* LOGO AREA */
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.logo img{
+height:40px;
+width:40px;
+object-fit:cover;
+border-radius:50%;
+}
+
+.logo span{
+color:white;
+font-size:18px;
+font-weight:600;
+}
+
+/* MENU */
+
+.nav-menu{
+display:flex;
+list-style:none;
+gap:30px;
+align-items:center;
+}
+
+.nav-menu a{
+text-decoration:none;
+color:white;
+font-size:15px;
+transition:.3s;
+}
+
+.nav-menu a:hover{
+color:#f4b400;
+}
+
+/* DROPDOWN */
+
+.dropdown{
+max-height:0;
+overflow:hidden;
+background:#222;
+transition:0.4s ease;
+display:flex;
+flex-direction:column;
+}
+
+.dropdown a{
+padding:10px;
+font-size:14px;
+}
+
+.dropdown.open{
+max-height:200px;
+}
+
+/* BUTTON */
+
+.login-btn{
+background:#f4b400;
+border:none;
+padding:7px 15px;
+border-radius:5px;
+cursor:pointer;
+}
+
+/* HAMBURGER */
+
+.hamburger{
+display:none;
+font-size:22px;
+color:white;
+cursor:pointer;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.nav-menu{
+position:absolute;
+top:65px;
+left:-100%;
+width:100%;
+background:#111;
+flex-direction:column;
+align-items:flex-start;
+padding:20px;
+gap:10px;
+transition:0.4s;
+}
+
+.nav-menu.active{
+left:0;
+}
+
+.nav-menu li{
+width:100%;
+}
+
+.dropdown{
+background:#222;
+width:100%;
+}
+
+.hamburger{
+display:block;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="navbar">
+
+<!-- LOGO + COMPANY NAME -->
+
+<div class="logo">
+<img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png">
+<span>Foodies Restaurant</span>
+</div>
+
+<ul class="nav-menu" id="navMenu">
+
+<li>
+
+<a href="#" id="homeBtn">Home <i class="fa fa-angle-down"></i></a>
+
+<div class="dropdown" id="homeDropdown">
+<a href="#">Home 1</a>
+<a href="#">Home 2</a>
+<a href="#">Home 3</a>
+</div>
+
+</li>
+
+<li><a href="#">Menu</a></li>
+
+<li><a href="#">Shop</a></li>
+
+<li><a href="#">Blog</a></li>
+
+<li><a href="#">Dashboard</a></li>
+
+<li><button class="login-btn">Login</button></li>
+
+</ul>
+
+<div class="hamburger" id="hamburger">
+<i class="fa fa-bars"></i>
+</div>
+
+</div>
+
+</header>
+
+<script>
+
+/* HAMBURGER MENU */
+
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("navMenu");
+
+hamburger.onclick = () =>{
+navMenu.classList.toggle("active");
+};
+
+/* HOME DROPDOWN */
+
+const homeBtn = document.getElementById("homeBtn");
+const homeDropdown = document.getElementById("homeDropdown");
+
+homeBtn.addEventListener("click",function(e){
+
+e.preventDefault();
+
+homeDropdown.classList.toggle("open");
+
+});
+
+</script>
+
+</body>
+</html>

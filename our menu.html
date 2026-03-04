@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Responsive Header</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+margin:0;
+font-family:Poppins,sans-serif;
+background:#ecbd5e;
+padding-top:80px;
+}
+/* HEADER */
+
+header{
+position:fixed;
+top:0;
+width:100%;
+background:#111;
+padding:12px 40px;
+z-index:999;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+/* LOGO AREA */
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.logo img{
+height:40px;
+width:40px;
+object-fit:cover;
+border-radius:50%;
+}
+
+.logo span{
+color:white;
+font-size:18px;
+font-weight:600;
+}
+
+/* MENU */
+
+.nav-menu{
+display:flex;
+list-style:none;
+gap:30px;
+align-items:center;
+}
+
+.nav-menu a{
+text-decoration:none;
+color:white;
+font-size:15px;
+transition:.3s;
+}
+
+.nav-menu a:hover{
+color:#f4b400;
+}
+
+/* DROPDOWN */
+
+.dropdown{
+max-height:0;
+overflow:hidden;
+background:#222;
+transition:0.4s ease;
+display:flex;
+flex-direction:column;
+}
+
+.dropdown a{
+padding:10px;
+font-size:14px;
+}
+
+.dropdown.open{
+max-height:200px;
+}
+
+/* BUTTON */
+
+.login-btn{
+background:#f4b400;
+border:none;
+padding:7px 15px;
+border-radius:5px;
+cursor:pointer;
+}
+
+/* HAMBURGER */
+
+.hamburger{
+display:none;
+font-size:22px;
+color:white;
+cursor:pointer;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.nav-menu{
+position:absolute;
+top:65px;
+left:-100%;
+width:100%;
+background:#111;
+flex-direction:column;
+align-items:flex-start;
+padding:20px;
+gap:10px;
+transition:0.4s;
+}
+
+.nav-menu.active{
+left:0;
+}
+
+.nav-menu li{
+width:100%;
+}
+
+.dropdown{
+background:#222;
+width:100%;
+}
+
+.hamburger{
+display:block;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="navbar">
+
+<!-- LOGO + COMPANY NAME -->
+
+<div class="logo">
+<img src="logo.webp">
+<span> STACKLY</span>
+</div>
+
+<ul class="nav-menu" id="navMenu">
+
+<li>
+
+<a href="#" id="homeBtn">Home <i class="fa fa-angle-down"></i></a>
+
+<div class="dropdown" id="homeDropdown">
+<a href="index.html">Home 1</a>
+<a href="homepage2.html">Home 2</a>
+<!-- <a href="#">Home 3</a> -->
+</div>
+
+</li>
+
+<li><a href="our menu.html">Menu</a></li>
+
+<!-- <li><a href="#">Shop</a></li> -->
+
+<li><a href="blo.html">Blog</a></li>
+
+<li><a href="find us.html">Find Us</a></li>
+
+<li><button class="login-btn">Login</button></li>
+
+</ul>
+
+<div class="hamburger" id="hamburger">
+<i class="fa fa-bars"></i>
+</div>
+
+</div>
+
+</header>
+
+<script>
+
+/* HAMBURGER MENU */
+
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("navMenu");
+
+hamburger.onclick = () =>{
+navMenu.classList.toggle("active");
+};
+
+/* HOME DROPDOWN */
+
+const homeBtn = document.getElementById("homeBtn");
+const homeDropdown = document.getElementById("homeDropdown");
+
+homeBtn.addEventListener("click",function(e){
+
+e.preventDefault();
+
+homeDropdown.classList.toggle("open");
+
+});
+
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <title>Dining Blog</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #ecbd5e;
+    }
+
+    .blog-section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 70px 20px;
+      text-align: center;
+    }
+
+    .blog-title h4 {
+      color: #c8a96a;
+      font-style: italic;
+      font-size: 24px;
+    }
+
+    .blog-title h2 {
+      font-size: 42px;
+      margin: 10px 0 20px;
+    }
+
+    .divider {
+      width: 50px;
+      height: 3px;
+      background: #c8a96a;
+      margin: auto;
+    }
+
+    /* GRID */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    /* CARD */
+    .blog-card {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      transition: 0.4s;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .blog-img {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blog-img img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: 0.4s;
+    }
+
+    .blog-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .blog-content {
+      padding: 20px;
+      text-align: left;
+    }
+
+    .blog-content span {
+      font-size: 12px;
+      color: #c8a96a;
+      font-weight: 600;
+    }
+
+    .blog-content h3 {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    .blog-content p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .read-more {
+      display: inline-block;
+      margin-top: 10px;
+      color: #c8a96a;
+      text-decoration: none;
+      font-weight: 600;
+      position: relative;
+    }
+
+    .read-more::after {
+      content: "";
+      width: 0;
+      height: 2px;
+      background: #c8a96a;
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      transition: 0.3s;
+    }
+
+    .read-more:hover::after {
+      width: 100%;
+    }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      .blog-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .blog-title h2 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<!-- AOS CSS -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<section class="menu-section">
+  
+  <div class="menu-title" data-aos="fade-up">
+    <h4>Our Menu</h4>
+    <h2>Delicious Offerings</h2>
+    <div class="divider"></div>
+  </div>
+
+  <!-- CATEGORY TABS -->
+  <div class="menu-tabs" data-aos="fade-up">
+    <button class="tab active" onclick="filterMenu('all')">All</button>
+    <button class="tab" onclick="filterMenu('starter')">Starters</button>
+    <button class="tab" onclick="filterMenu('main')">Main Course</button>
+    <button class="tab" onclick="filterMenu('dessert')">Desserts</button>
+    <button class="tab" onclick="filterMenu('drink')">Drinks</button>
+  </div>
+
+  <!-- MENU ITEMS -->
+  <div class="menu-grid">
+
+    <!-- ITEM -->
+    <div class="menu-item starter" data-aos="fade-up">
+      <div>
+        <h3>Grilled Chicken</h3>
+        <p>Juicy grilled chicken with herbs & spices</p>
+      </div>
+      <span>₹320</span>
+    </div>
+
+    <div class="menu-item starter" data-aos="fade-up" data-aos-delay="100">
+      <div>
+        <h3>Veg Soup</h3>
+        <p>Fresh vegetable soup with natural flavors</p>
+      </div>
+      <span>₹180</span>
+    </div>
+
+    <div class="menu-item main" data-aos="fade-up" data-aos-delay="200">
+      <div>
+        <h3>Paneer Butter Masala</h3>
+        <p>Rich creamy curry with soft paneer cubes</p>
+      </div>
+      <span>₹250</span>
+    </div>
+
+    <div class="menu-item main" data-aos="fade-up" data-aos-delay="300">
+      <div>
+        <h3>Mutton Biryani</h3>
+        <p>Traditional aromatic biryani with spices</p>
+      </div>
+      <span>₹350</span>
+    </div>
+
+    <div class="menu-item dessert" data-aos="fade-up">
+      <div>
+        <h3>Chocolate Lava Cake</h3>
+        <p>Warm cake with molten chocolate center</p>
+      </div>
+      <span>₹150</span>
+    </div>
+
+    <div class="menu-item dessert" data-aos="fade-up" data-aos-delay="100">
+      <div>
+        <h3>Ice Cream Sundae</h3>
+        <p>Vanilla ice cream with chocolate topping</p>
+      </div>
+      <span>₹120</span>
+    </div>
+
+    <div class="menu-item drink" data-aos="fade-up">
+      <div>
+        <h3>Mojito</h3>
+        <p>Refreshing mint & lime drink</p>
+      </div>
+      <span>₹140</span>
+    </div>
+
+    <div class="menu-item drink" data-aos="fade-up" data-aos-delay="100">
+      <div>
+        <h3>Cold Coffee</h3>
+        <p>Chilled creamy coffee with ice cream</p>
+      </div>
+      <span>₹160</span>
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+.menu-section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 70px 20px;
+  text-align: center;
+  background: #f8f6f2;
+}
+
+.menu-title h4 {
+  color: #c8a96a;
+  font-style: italic;
+  font-size: 24px;
+}
+
+.menu-title h2 {
+  font-size: 42px;
+  margin: 10px 0;
+}
+
+.divider {
+  width: 50px;
+  height: 3px;
+  background: #c8a96a;
+  margin: 10px auto 30px;
+}
+
+/* TABS */
+.menu-tabs {
+  margin-bottom: 40px;
+}
+
+.tab {
+  border: none;
+  background: transparent;
+  margin: 5px;
+  padding: 10px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #555;
+  border-bottom: 2px solid transparent;
+  transition: 0.3s;
+}
+
+.tab.active,
+.tab:hover {
+  color: #c8a96a;
+  border-color: #c8a96a;
+}
+
+/* GRID */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  text-align: left;
+}
+
+/* ITEM */
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.menu-item:hover {
+  transform: translateY(-5px);
+}
+
+.menu-item h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.menu-item p {
+  font-size: 14px;
+  color: #666;
+}
+
+.menu-item span {
+  color: #c8a96a;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-title h2 {
+    font-size: 28px;
+  }
+}
+</style>
+
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+AOS.init({
+  duration: 1000,
+  once: true
+});
+
+/* FILTER FUNCTION */
+function filterMenu(category) {
+  let items = document.querySelectorAll('.menu-item');
+  let tabs = document.querySelectorAll('.tab');
+
+  tabs.forEach(tab => tab.classList.remove('active'));
+  event.target.classList.add('active');
+
+  items.forEach(item => {
+    if (category === 'all') {
+      item.style.display = 'flex';
+    } else {
+      item.style.display = item.classList.contains(category) ? 'flex' : 'none';
+    }
+  });
+}
+</script>
+
+
+
+
+
+
+<!-- FONT AWESOME -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<footer class="footer" data-aos="fade-up">
+  <div class="footer-container">
+
+    <!-- BRAND -->
+    <div class="footer-col">
+      <h2>Gourmet Haven</h2>
+      <p>
+        Experience fine dining with a blend of luxury, taste, and ambiance.
+        Crafted to deliver unforgettable culinary moments.
+      </p>
+    </div>
+
+    <!-- LINKS -->
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="homepage2.html">Home</a></li>
+        <li><a href="our menu.html">Menu</a></li>
+        <li><a href="blo.html">Blog</a></li>
+        <li><a href="find us.html">Find Us</a></li>
+      </ul>
+    </div>
+
+    <!-- HOURS -->
+    <div class="footer-col">
+      <h3>Opening Hours</h3>
+      <ul>
+        <li><i class="fa-regular fa-clock"></i> Mon - Fri: 10AM - 10PM</li>
+        <li><i class="fa-regular fa-clock"></i> Sat - Sun: 12PM - 12AM</li>
+      </ul>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="footer-col">
+      <h3>Contact</h3>
+      <ul>
+        <li><i class="fa-solid fa-location-dot"></i> Tirupur, Tamil Nadu</li>
+        <li><i class="fa-solid fa-phone"></i> +91 98765 43210</li>
+        <li><i class="fa-solid fa-envelope"></i> info@gourmethaven.com</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="footer-bottom">
+    <p>© 2026 Gourmet Haven. All Rights Reserved.</p>
+
+    <div class="socials">
+      <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="twitter"><i class="fab fa-x-twitter"></i></a>
+      <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+</footer>
+
+<style>
+.footer {
+  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+  color: #ddd;
+  padding: 70px 20px 20px;
+  margin-top: 60px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.footer-col h2 {
+  color: #c8a96a;
+  font-size: 26px;
+}
+
+.footer-col h3 {
+  color: #c8a96a;
+  margin-bottom: 15px;
+}
+
+.footer-col p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #aaa;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #bbb;
+}
+
+.footer-col ul li i {
+  margin-right: 8px;
+  color: #c8a96a;
+}
+
+.footer-col ul li a {
+  text-decoration: none;
+  color: #bbb;
+  position: relative;
+  transition: 0.3s;
+}
+
+/* underline animation */
+.footer-col ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #c8a96a;
+  left: 0;
+  bottom: -3px;
+  transition: 0.3s;
+}
+
+.footer-col ul li a:hover::after {
+  width: 100%;
+}
+
+.footer-col ul li a:hover {
+  color: #fff;
+}
+
+/* bottom */
+.footer-bottom {
+  border-top: 1px solid #333;
+  margin-top: 50px;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-bottom p {
+  font-size: 13px;
+  color: #888;
+}
+
+/* SOCIAL ICONS */
+.socials a {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-left: 10px;
+  background: #222;
+  color: #c8a96a;
+  font-size: 16px;
+  transition: 0.4s;
+}
+
+/* Hover colors */
+.socials a.facebook:hover {
+  background: #1877f2;
+  color: #fff;
+  transform: translateY(-5px);
+}
+
+.socials a.instagram:hover {
+  background: radial-gradient(circle at 30% 30%, #feda75, #d62976, #962fbf);
+  color: #fff;
+  transform: translateY(-5px);
+}
+
+.socials a.twitter:hover {
+  background: #000;
+  color: #fff;
+  transform: translateY(-5px);
+}
+
+.socials a.youtube:hover {
+  background: #ff0000;
+  color: #fff;
+  transform: translateY(-5px);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
