@@ -496,7 +496,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1920&q=80');
+            background-image: url('hero1.jpg');
             background-size: cover;
             background-position: center;
             animation: zoomSlow 20s infinite alternate;
@@ -881,7 +881,7 @@
 
         /* Stats Section */
         .stats {
-            background: linear-gradient(to right, rgba(10,42,47,0.95), rgba(10,42,47,0.95)), url('https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1920&q=80');
+            background: linear-gradient(to right, rgba(10,42,47,0.95), rgba(10,42,47,0.95)), url('url2.webp');
             background-size: cover;
             background-attachment: fixed;
             padding: 100px 5%;
@@ -1306,7 +1306,7 @@
 
         /* Reservation Section */
         .reservation {
-            background: linear-gradient(to right, rgba(10,42,47,0.95), rgba(10,42,47,0.8)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=80');
+            background: linear-gradient(to right, rgba(10,42,47,0.95), rgba(10,42,47,0.8)), url('url3.webp');
             background-size: cover;
             background-position: center;
             min-height: 100vh;
@@ -1980,19 +1980,37 @@
         flex-wrap: nowrap;
     }
     
-    .nav-left {
-        gap: 15px;
-        flex: 1;
-        min-width: 0; /* Prevent flex item from overflowing */
-    }
-    
+   .nav-left{
+display:flex;
+align-items:center;
+gap:10px;
+flex:1;
+min-width:0;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:8px;
+white-space:nowrap;
+}
+
+.logo-img{
+width:40px;
+height:40px;
+}
+
+.logo-text{
+font-size:0.9rem;
+letter-spacing:2px;
+}
     .menu-toggle {
         width: 25px;
         height: 18px;
         flex-shrink: 0;
     }
     
-    .logo {
+    /* .logo {
         gap: 10px;
         flex-shrink: 1;
         min-width: 0;
@@ -2012,7 +2030,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
     }
-    
+     */
     .logo-text div:first-child {
         font-size: 0.9rem;
         letter-spacing: 2px;
@@ -2055,15 +2073,56 @@
     }
 }
 
+.side-menu-links li{
+padding:12px 0;
+border-bottom:1px solid rgba(201,184,150,0.15);
+}
+
+.side-menu-links a{
+display:block;
+width:100%;
+padding:12px 0;
+}
 
 
 
 
 
+@media (max-width:768px){
+
+.side-menu-links li:first-child{
+margin-top:50px;
+}
+
+}
+
+@media (max-width:768px){
+
+.side-menu-content{
+padding-top:80px;
+}
+
+}
 
 
 
 
+.mobile-submenu{
+max-height:0;
+overflow:hidden;
+transition:max-height 0.4s ease;
+}
+
+.mobile-submenu.active{
+max-height:200px;
+}
+
+.mobile-submenu a{
+font-size:1.1rem;
+padding:10px 0;
+display:block;
+color:#c9b896;
+}
 
 
 
@@ -2458,7 +2517,9 @@ font-size:0.8rem;
 
         @media (max-width: 480px) {
             .logo-text {
-                display: none;
+                display: block;
+                font-size:0.9rem;
+                letter-spacing:2px;
             }
 
             .rsvp-btn {
@@ -2511,6 +2572,130 @@ font-size:0.8rem;
                 transition-duration: 0.01ms !important;
             }
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Mobile Footer Contact Center */
+
+@media (max-width:768px){
+
+.footer-contact{
+text-align:center;
+}
+
+.footer-contact-item{
+text-align:center;
+}
+
+.footer-contact-item i{
+margin:0 auto 6px;
+}
+
+.footer-social{
+justify-content:center;
+}
+
+}
+
+
+
+/* Mobile Footer Center Align Fix */
+
+@media (max-width:768px){
+
+.footer-links{
+text-align:center;
+}
+
+.footer-links h4{
+text-align:center;
+}
+
+.footer-links h4::after{
+left:50%;
+transform:translateX(-50%);
+}
+
+.footer-links ul{
+padding:0;
+}
+
+.footer-links li{
+text-align:center;
+}
+
+.footer-links a{
+display:inline-block;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </style>
 </head>
 <body>
@@ -2590,6 +2775,7 @@ font-size:0.8rem;
             <!-- <li><a href="#home">Home</a></li> -->
             
             <!-- Mobile Dropdown for Menu -->
+             
             <li class="mobile-dropdown">
                 <div class="mobile-dropdown-toggle" onclick="toggleMobileDropdown(this)">
                     <!-- <span>Menu</span> -->
@@ -2606,28 +2792,31 @@ font-size:0.8rem;
             </li>
             
             
-            <li><a href="index.html">Home</a></li>
+            <!-- <li><a href="index.html">Home</a></li> -->
             
             <!-- Mobile Dropdown for Pages -->
-            <li class="mobile-dropdown">
-                <div class="mobile-dropdown-toggle" onclick="toggleMobileDropdown(this)">
-                    <span>Pages</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div> 
-                 <div class="mobile-submenu">
-                    <a href="index.html">Home page1</a>
-                    <a href="homepage2.html">Home page2</a>
-                    <!-- <a href="#blog">Blog</a>
-                    <a href="#testimonials">Testimonials</a> -->
-                </div> 
-                <li><a href="about.html">About Us</a></li>
-            </li>
-            
-            <li><a href="reservation.html">Reservation</a></li>
-            <li><a href="contact.html">Contact</a></li>
-                        <li><a href="dash.html">Dashboard</a></li>
+            <ul class="side-menu-links">
 
-        </ul>
+<li class="mobile-dropdown">
+
+<div class="mobile-dropdown-toggle" onclick="toggleMobileDropdown(this)">
+<span>Home</span>
+<i class="fas fa-chevron-down"></i>
+</div>
+
+<div class="mobile-submenu">
+<a href="index.html">Home Page1</a>
+<a href="homepage2.html">Home Page2</a>
+</div>
+
+</li>
+
+<li><a href="about.html">About Us</a></li>
+<li><a href="reservation.html">Reservation</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="dash.html">Dashboard</a></li>
+
+</ul>
         
         <div class="side-menu-contact">
             <p>Via Serlas 546, 6700 St. Moritz, Switzerland</p>
@@ -2767,7 +2956,7 @@ font-size:0.8rem;
                 </div>
             </div>
             <div class="gallery-item">
-                <img src="hero5.jpg" alt="Fine Dining">
+                <img src="hero8.webp" alt="Fine Dining">
                 <div class="gallery-overlay">
                     <h3>Artisan Plating</h3>
                     <p>Where presentation meets passion</p>
