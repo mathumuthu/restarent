@@ -5,136 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Grand Restaurant</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-<style>
-
-/* HERO */
-
-.hero{
-height:100vh;
-background:url("hero4.webp") center/cover no-repeat;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-color:white;
-}
-
-.hero-content h1{
-font-size:80px;
-}
-
-.hero-content h2{
-font-size:60px;
-}
-
-.hero-content p{
-margin-top:20px;
-letter-spacing:2px;
-}
-
-/* HAMBURGER */
-
-.hamburger{
-display:none;
-font-size:25px;
-cursor:pointer;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.header{
-top:35px;
-}
-
-.nav{
-position:absolute;
-top:80px;
-right:-100%;
-background:#111;
-width:260px;
-height:100vh;
-transition:0.4s;
-}
-
-.nav.active{
-right:0;
-}
-
-.nav-links{
-flex-direction:column;
-padding:40px;
-gap:25px;
-}
-
-.dropdown-menu{
-position:static;
-width:100%;
-background:#222;
-}
-
-.hamburger{
-display:block;
-}
-
-.hero-content h1{
-font-size:40px;
-}
-
-.hero-content h2{
-font-size:30px;
-}
-
-}
-</style>
-</head>
-
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
-</head>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Responsive Header</title>
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif;}
+html,body{overflow-x:hidden;background:#ecbd5e;}
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Poppins,sans-serif;
-}
-
-body{
-margin:0;
-font-family:Poppins,sans-serif;
-background:#ecbd5e;
-padding-top:80px;
-}
 /* HEADER */
-
 header{
 position:fixed;
 top:0;
 width:100%;
 background:#111;
-padding:12px 40px;
+padding:12px 20px;
 z-index:999;
-box-shadow:0 4px 10px rgba(0,0,0,0.2);
 }
 
 .navbar{
@@ -143,69 +27,49 @@ justify-content:space-between;
 align-items:center;
 }
 
-/* LOGO AREA */
-
 .logo{
 display:flex;
 align-items:center;
 gap:10px;
-}
-
-.logo img{
-height:40px;
-width:40px;
-object-fit:cover;
-border-radius:50%;
-}
-
-.logo span{
-color:white;
-font-size:18px;
+color:#fff;
 font-weight:600;
 }
 
-/* MENU */
+.logo img{
+height:40px;width:40px;border-radius:50%;
+}
 
+/* MENU */
 .nav-menu{
 display:flex;
 list-style:none;
-gap:30px;
+gap:25px;
 align-items:center;
+transition:.4s;
+will-change: transform;
 }
 
 .nav-menu a{
 text-decoration:none;
-color:white;
+color:#fff;
 font-size:15px;
-transition:.3s;
 }
 
-.nav-menu a:hover{
-color:#f4b400;
-}
+.nav-menu a:hover{color:#f4b400}
 
 /* DROPDOWN */
-
 .dropdown{
 max-height:0;
 overflow:hidden;
 background:#222;
-transition:0.4s ease;
+transition:.4s;
 display:flex;
 flex-direction:column;
 }
-
-.dropdown a{
-padding:10px;
-font-size:14px;
-}
-
-.dropdown.open{
-max-height:200px;
-}
+.dropdown a{padding:10px;font-size:14px}
+.dropdown.open{max-height:200px}
 
 /* BUTTON */
-
 .login-btn{
 background:#f4b400;
 border:none;
@@ -215,7 +79,6 @@ cursor:pointer;
 }
 
 /* HAMBURGER */
-
 .hamburger{
 display:none;
 font-size:22px;
@@ -223,8 +86,22 @@ color:white;
 cursor:pointer;
 }
 
-/* MOBILE */
+/* HERO */
+.hero{
+height:100vh;
+background:url("hero4.webp") center/cover no-repeat;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+padding-top:80px;
+}
 
+.hero h1{font-size:60px}
+.hero h2{font-size:40px}
+
+/* MOBILE */
 @media(max-width:768px){
 
 .nav-menu{
@@ -236,39 +113,28 @@ background:#111;
 flex-direction:column;
 align-items:flex-start;
 padding:20px;
-gap:10px;
-transition:0.4s;
+gap:15px;
 }
 
-.nav-menu.active{
-left:0;
+.nav-menu.active{left:0}
+
+.nav-menu li{width:100%}
+
+.hamburger{display:block}
+
+.hero h1{font-size:36px}
+.hero h2{font-size:24px}
 }
 
-.nav-menu li{
-width:100%;
-}
-
-.dropdown{
-background:#222;
-width:100%;
-}
-
-.hamburger{
-display:block;
-}
-
-}
-
+/* LOCK SCROLL WHEN MENU OPEN */
+body.menu-open{overflow:hidden;}
 </style>
 </head>
 
 <body>
 
 <header>
-
 <div class="navbar">
-
-<!-- LOGO + COMPANY NAME -->
 
 <div class="logo">
 <img src="logo.webp">
@@ -278,28 +144,17 @@ display:block;
 <ul class="nav-menu" id="navMenu">
 
 <li>
-
 <a href="#" id="homeBtn">Home <i class="fa fa-angle-down"></i></a>
-
 <div class="dropdown" id="homeDropdown">
 <a href="index.html">Home 1</a>
 <a href="homepage2.html">Home 2</a>
-<!-- <a href="#">Home 3</a> -->
 </div>
-
 </li>
 
-<li><a href="our menu.html">Menu</a></li>
-
-<!-- <li><a href="S">Shop</a></li> -->
-
-<li><a href="blo.html">Blog</a></li>
-
-<li><a href="find us.html">Find Us</a></li>
-<!-- <li><a href="#">Blog</a></li> -->
-
-
-<a href="login.html"><li><button class="login-btn">Login</button></li></a>
+<li><a href="#">Menu</a></li>
+<li><a href="#">Blog</a></li>
+<li><a href="#">Find Us</a></li>
+<li><button class="login-btn">Login</button></li>
 
 </ul>
 
@@ -308,33 +163,35 @@ display:block;
 </div>
 
 </div>
-
 </header>
 
-<script>
+<section class="hero">
+<div>
+<h1>GRAND</h1>
+<h2>RESTAURANT</h2>
+<p>MAKING THE DELICIOUS PREMIUM FOOD SINCE</p>
+</div>
+</section>
 
-/* HAMBURGER MENU */
+<script>
+document.addEventListener("DOMContentLoaded", function(){
 
 const hamburger = document.getElementById("hamburger");
 const navMenu = document.getElementById("navMenu");
-
-hamburger.onclick = () =>{
-navMenu.classList.toggle("active");
-};
-
-/* HOME DROPDOWN */
-
 const homeBtn = document.getElementById("homeBtn");
 const homeDropdown = document.getElementById("homeDropdown");
 
-homeBtn.addEventListener("click",function(e){
-
-e.preventDefault();
-
-homeDropdown.classList.toggle("open");
-
+hamburger.addEventListener("click", function(){
+navMenu.classList.toggle("active");
+document.body.classList.toggle("menu-open");
 });
 
+homeBtn.addEventListener("click", function(e){
+e.preventDefault();
+homeDropdown.classList.toggle("open");
+});
+
+});
 </script>
 
 </body>
@@ -360,55 +217,8 @@ homeDropdown.classList.toggle("open");
 
 
 
-<!-- HERO -->
-
-<section class="hero">
-
-<div class="hero-content">
-
-<h1>GRAND</h1>
-
-<h2>RESTAURANT</h2>
-
-<p>MAKING THE DELICIOUS PREMIUM FOOD SINCE</p>
-
-</div>
-
-</section>
 
 
-<script >
-
-
-
-const hamburger = document.getElementById("hamburger");
-const nav = document.getElementById("nav");
-
-hamburger.addEventListener("click", () => {
-
-nav.classList.toggle("active");
-
-});
-
-
-/* Dropdown */
-
-const dropbtn = document.querySelector(".dropbtn");
-const dropdown = document.querySelector(".dropdown-menu");
-
-dropbtn.addEventListener("click", function(e){
-
-if(window.innerWidth < 900){
-
-e.preventDefault();
-
-dropdown.classList.toggle("show");
-
-}
-
-});
-
-</script>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -552,8 +362,6 @@ body{
 }
 
 </style>
-</head>
-<body>
 
 <section class="section">
     <div class="container">
@@ -603,12 +411,7 @@ body{
       once:true
   });
 </script>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dining Section</title>
+
 
   <!-- AOS CSS -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
@@ -731,7 +534,7 @@ body{
         accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
         ab illo inventore veritatis et quasi.
       </p>
-      <a href="#">Learn More</a>
+      <a href="404.html">Learn More</a>
     </div>
 
   </div>
@@ -746,9 +549,7 @@ body{
   });
 </script>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -897,9 +698,7 @@ body{
       }
     }
   </style>
-</head>
 
-<body>
 
 <div class="container">
   <div class="grid">
@@ -1260,8 +1059,7 @@ body{
   });
 </script>
 
-</body>
-</html>
+
 
 
 
@@ -1519,3 +1317,5 @@ body{
   }
 }
 </style>
+</body>
+</html>
